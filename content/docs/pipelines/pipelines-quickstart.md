@@ -1,12 +1,12 @@
 +++
 title = "Pipelines Quickstart"
 description = "Getting started with Kubeflow Pipelines"
-weight = 20
+weight = 10
 +++
 
 Use this guide if you want to get a simple pipeline running quickly in
 Kubeflow Pipelines. If you need a more in-depth guide, see the
-[end-to-end tutorial](/docs/pipelines/tutorials/pipelines-tutorial/).
+[end-to-end tutorial](/docs/gke/pipelines-tutorial/).
 
 * This quickstart guide shows you how to use one of the samples that come with 
   the Kubeflow Pipelines installation and are visible on the Kubeflow Pipelines
@@ -19,9 +19,7 @@ Kubeflow Pipelines. If you need a more in-depth guide, see the
 
 Follow these steps to deploy Kubeflow and open the pipelines dashboard:
 
-1. Follow the guide to [deploying Kubeflow on GCP](/docs/gke/deploy/), 
-  including the step to deploy Kubeflow using the 
-  [Kubeflow deployment UI](https://deploy.kubeflow.cloud/).
+1. Follow the guide to [deploying Kubeflow on GCP](/docs/gke/deploy/).
 
     {{% pipelines-compatibility %}} 
 
@@ -42,9 +40,9 @@ Follow these steps to deploy Kubeflow and open the pipelines dashboard:
       [`kubectl` 
       documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
-    1. Run ```kubectl port-forward -n kubeflow `kubectl get pods -n kubeflow --selector=service=ambassador -o jsonpath='{.items[0].metadata.name}'` 8080:80``` and go to `http://localhost:8080/`.
+    1. Run ```kubectl port-forward -n kubeflow svc/ml-pipeline-ui 8080:80``` and go to `http://localhost:8080/`.
 
-1. Click **Pipeline Dashboard** to access the pipelines UI. The pipelines UI looks like
+1. Click **Pipelines** to access the pipelines UI. The pipelines UI looks like
   this:
   <img src="/docs/images/pipelines-ui.png" 
     alt="Pipelines UI"
@@ -57,13 +55,13 @@ pipelines quickly. The steps below show you how to run a basic sample that
 includes some Python operations, but doesn't include a machine learning (ML) 
 workload:
 
-1. Click the name of the sample, **\[Sample\] Basic - Parallel Join**, on the pipelines 
+1. Click the name of the sample, **\[Sample\] Basic - Parallel Execution**, on the pipelines 
   UI:
   <img src="/docs/images/click-pipeline-sample.png" 
     alt="Pipelines UI"
     class="mt-3 mb-3 border border-info rounded">
 
-1. Click **Create an experiment**:
+1. Click **Create experiment**:
   <img src="/docs/images/pipelines-start-experiment.png" 
     alt="Starting an experiment on the pipelines UI"
     class="mt-3 mb-3 border border-info rounded">
@@ -88,9 +86,8 @@ workload:
     alt="Run results on the pipelines UI"
     class="mt-3 mb-3 border border-info rounded">
 
-You can find the source code for the basic parallel join sample in the 
-[Kubeflow Pipelines 
-repo](https://github.com/kubeflow/pipelines/blob/master/samples/basic/parallel_join.py).
+You can find [the source code for the basic parallel join sample](https://github.com/kubeflow/pipelines/blob/master/samples/core/parallel_join/parallel_join.py)
+in the Kubeflow Pipelines repo.
 
 ## Run an ML pipeline
 
@@ -124,7 +121,7 @@ Follow these steps to set up the necessary GCP services and run the sample:
     alt="XGBoost sample on the pipelines UI"
     class="mt-3 mb-3 border border-info rounded">
 
-1. Click **Create an experiment**.
+1. Click **Create experiment**.
 1. Follow the prompts to create an **experiment** and then create a **run**.
   Supply the following **run parameters**:
 
@@ -163,7 +160,7 @@ Follow these steps to set up the necessary GCP services and run the sample:
 
 You can find the source code for the XGBoost training sample in the 
 [Kubeflow Pipelines 
-repo](https://github.com/kubeflow/pipelines/tree/master/samples/xgboost-spark).
+repo](https://github.com/kubeflow/pipelines/tree/master/samples/core/xgboost_training_cm).
 
 ## Clean up your GCP environment
 
@@ -181,9 +178,11 @@ finished with them:
 * Learn more about the 
   [important concepts](/docs/pipelines/concepts/) in Kubeflow
   Pipelines.
-* Follow the [end-to-end tutorial](/docs/pipelines/tutorials/pipelines-tutorial/) 
+* Follow the [end-to-end tutorial](/docs/gke/pipelines-tutorial/) 
   using an MNIST machine-learning model.
 * This page showed you how to run some of the examples supplied in the Kubeflow
   Pipelines UI. Next, you may want to run a pipeline from a notebook, or compile 
   and run a sample from the code. See the guide to experimenting with
   [the Kubeflow Pipelines samples](/docs/pipelines/tutorials/build-pipeline/).
+* Build your own machine-learning pipelines with the [Kubeflow Pipelines 
+  SDK](/docs/pipelines/sdk/sdk-overview/).

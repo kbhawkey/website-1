@@ -1,7 +1,7 @@
 +++
 title = "Build Reusable Components"
 description = "A detailed tutorial on creating components that you can use in various pipelines"
-weight = 3
+weight = 40
 +++
 
 This page describes how to author a reusable component that you can
@@ -489,5 +489,5 @@ components/<component group>/<component name>/
 * Visualize the output of your component by
   [adding metadata for an output 
   viewer](/docs/pipelines/metrics/output-viewer/).
-* Explore the 
-  [index of reusable components](/docs/pipelines/reusable-components/).
+* Explore the [reusable components and other shared 
+  resources](/docs/examples/shared-resources/).

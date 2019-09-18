@@ -1,7 +1,7 @@
 +++
 title = "DSL Recursion"
 description = "Author a recursive function in DSL"
-weight = 50
+weight = 110
 +++
 
 This page describes how to write recursive functions in the domain specific language (DSL) provided by the Kubeflow Pipelines SDK.
@@ -88,4 +88,4 @@ multiple recursive function calls in the function body.
 
 ## Next steps
 
-* See [recursion sample](https://github.com/kubeflow/pipelines/blob/master/samples/basic/recursion.py)
+* See [recursion sample](https://github.com/kubeflow/pipelines/blob/master/samples/core/recursion/recursion.py)

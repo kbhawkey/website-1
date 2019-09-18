@@ -1,7 +1,7 @@
 +++
 title = "Install the Kubeflow Pipelines SDK"
 description = "Setting up your Kubeflow Pipelines development environment"
-weight = 1
+weight = 20
 +++
 
 This guide tells you how to install the 
@@ -65,7 +65,7 @@ up Python using [Miniconda](https://conda.io/miniconda.html):
  
     ```bash
     conda create --name mlpipeline python=3.7
-    source activate mlpipeline
+    conda activate mlpipeline
     ```
  
 ## Install the Kubeflow Pipelines SDK
@@ -73,8 +73,7 @@ up Python using [Miniconda](https://conda.io/miniconda.html):
 Run the following command to install the Kubeflow Pipelines SDK:
 
 ```bash
-latest_version=$(curl --silent https://api.github.com/repos/kubeflow/pipelines/releases/latest | jq -r .tag_name)
-pip install https://storage.googleapis.com/ml-pipeline/release/${latest_version}/kfp.tar.gz --upgrade
+pip install https://storage.googleapis.com/ml-pipeline/release/latest/kfp.tar.gz --upgrade
 ```
 
 After successful installation, the command `dsl-compile` should be available.
@@ -92,7 +91,7 @@ The response should be something like this:
 
 ## Next steps
 
+* [See how to use the SDK](/docs/pipelines/sdk/sdk-overview/).
 * [Build a component and a pipeline](/docs/pipelines/sdk/build-component/).
-* [Get started](/docs/pipelines/pipelines-quickstart) with the 
-  Kubeflow Pipelines UI.
-* Read more about [pipeline concepts](/docs/pipelines/concepts/).
+* [Get started with the UI](/docs/pipelines/pipelines-quickstart).
+* [Understand pipeline concepts](/docs/pipelines/concepts/).
